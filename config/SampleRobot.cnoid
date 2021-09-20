@@ -1,0 +1,125 @@
+items: 
+  id: 0
+  name: "Root"
+  plugin: Base
+  class: RootItem
+  children: 
+    - 
+      id: 1
+      name: "World"
+      plugin: Body
+      class: WorldItem
+      data: 
+        collisionDetection: false
+        collisionDetector: AISTCollisionDetector
+      children:
+        -
+          id: 2
+          name: "ClockPublisher"
+          plugin: ROSExt
+          class: ClockPublisherItem
+        - 
+          id: 3
+          name: "SR1"
+          plugin: Body
+          class: BodyItem
+          data: 
+            modelFile: "${SHARE}/model/SR1/SR1.body"
+            currentBaseLink: "WAIST"
+            rootPosition: [ 0, 0, 0.7135 ]
+            rootAttitude: [ 
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
+            jointPositions: [ 
+                
+               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+               0.0, 0.0 ]
+            initialRootPosition: [ 0, 0, 0.7135 ]
+            initialRootAttitude: [ 
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
+            initialJointPositions: [ 
+                
+               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+               0.0, 0.0 ]
+            zmp: [ 0, 0, 0 ]
+            selfCollisionDetection: false
+            isEditable: true
+          children: 
+            - 
+              id: 4
+              name: "SimpleController"
+              plugin: SimpleController
+              class: SimpleControllerItem
+              data: 
+                isNoDelayMode: false
+                controller: "BridgeShmController"
+                reloading: true
+                inputLinkPositions: false
+            -
+              id: 5
+              name: "Crane"
+              plugin: ROSExt
+              class: CraneItem
+              data:
+                linkName: "CHEST"
+                localPos: [0,0,0]
+                maxHeight: 1.7
+                minHeight: 0.5
+                upVelocity: 0.1
+                downVelocity: 0.03
+                pgain: 25000.0
+                dgain: 100.0
+                dgainR: 100.0
+        - 
+          id: 6
+          name: "Floor"
+          plugin: Body
+          class: BodyItem
+          data: 
+            modelFile: "${SHARE}/model/misc/floor.body"
+            currentBaseLink: "BASE"
+            rootPosition: [ 0, 0, -0.1 ]
+            rootAttitude: [ 
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
+            jointPositions: [  ]
+            initialRootPosition: [ 0, 0, -0.1 ]
+            initialRootAttitude: [ 
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
+            zmp: [ 0, 0, 0 ]
+            selfCollisionDetection: false
+            isEditable: true
+        - 
+          id: 7
+          name: "AISTSimulator"
+          plugin: Body
+          class: AISTSimulatorItem
+          data: 
+            realtimeSync: true
+            recording: "full"
+views: 
+  "Items": 
+    selected: [  ]
+    checked: [ 3, 6 ]
+    expanded: [ 1, 3 ]
+  "Scene": 
+    floorGrid: false
+toolbars: 
+  "TimeBar": 
+    minTime: 0
+    maxTime: 15
+    frameRate: 500
+    currentTime: 0
+    speedScale: 1
+    syncToOngoingUpdates: true
+    autoExpansion: true

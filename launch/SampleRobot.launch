@@ -1,0 +1,163 @@
+<launch>
+  <env name="ORBgiopMaxMsgSize" value="2147483648" /> <!-- openrtm setting -->
+
+  <node name="choreonoid" pkg="choreonoid_ros_ext_plugin" type="run_choreonoid.sh"
+        args="$(find hrpsys_sample)/config/SampleRobot.cnoid --start-simulation"/>
+
+  <node name="modelloader" pkg="openhrp3" type="openhrp-model-loader"
+        args="-ORBInitRef NameService=corbaloc:iiop:localhost:15005/NameService" output="screen"/> <!-- required for hrpsys RTCs -->
+
+  <node name="rtcd" pkg="openrtm_aist" type="rtcd" output="screen"
+        args='-o manager.is_master:YES -o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc"' />
+
+  <node name="load_rh"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys_trans_bridge/RobotHardware localhost:2810">
+    <rosparam subst_value="true">
+      execution_context:
+        type: "execution_context_rostime/ROSTimePeriodicExecutionContext"
+        rate: 500
+      instance_name: rh
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="el.rtc:q"     to="rh.rtc:qRef" />
+  <!-- <rtactivate component="rh.rtc"/> -->
+
+  <node name="load_seq"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/SequencePlayer localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: seq
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="sh.rtc:qOut"     to="seq.rtc:qInit" />
+  <rtconnect from="sh.rtc:basePosOut"     to="seq.rtc:basePosInit" />
+  <rtconnect from="sh.rtc:baseRpyOut"     to="seq.rtc:baseRpyInit" />
+  <rtconnect from="sh.rtc:zmpOut"     to="seq.rtc:zmpRefInit" />
+  <!-- <rtactivate component="seq.rtc"/> -->
+
+  <node name="load_sh"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/StateHolder localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: sh
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="seq.rtc:qRef"     to="sh.rtc:qIn" />
+  <rtconnect from="seq.rtc:tqRef"     to="sh.rtc:tqIn" />
+  <rtconnect from="seq.rtc:basePos"     to="sh.rtc:basePosIn" />
+  <rtconnect from="seq.rtc:baseRpy"     to="sh.rtc:baseRpyIn" />
+  <rtconnect from="seq.rtc:zmpRef"     to="sh.rtc:zmpIn" />
+  <rtconnect from="seq.rtc:optionalData"     to="sh.rtc:optionalDataIn" />
+  <rtconnect from="seq.rtc:rfsensorRef"     to="sh.rtc:rfsensorIn" />
+  <rtconnect from="seq.rtc:lfsensorRef"     to="sh.rtc:lfsensorIn" />
+  <rtconnect from="seq.rtc:rhsensorRef"     to="sh.rtc:rhsensorIn" />
+  <rtconnect from="seq.rtc:lhsensorRef"     to="sh.rtc:lhsensorIn" />
+  <rtconnect from="rh.rtc:q"     to="sh.rtc:currentQIn" />
+  <!-- <rtactivate component="sh.rtc"/> -->
+
+  <node name="load_es"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/EmergencyStopper localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: es
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="sh.rtc:qOut"     to="es.rtc:qRef" />
+  <rtconnect from="sh.rtc:rfsensorOut"     to="es.rtc:rfsensorIn" />
+  <rtconnect from="sh.rtc:lfsensorOut"     to="es.rtc:lfsensorIn" />
+  <rtconnect from="sh.rtc:rhsensorOut"     to="es.rtc:rhsensorIn" />
+  <rtconnect from="sh.rtc:lhsensorOut"     to="es.rtc:lhsensorIn" />
+  <rtconnect from="rh.rtc:servoState"     to="es.rtc:servoStateIn" />
+  <!-- <rtactivate component="es.rtc"/> -->
+
+  <node name="load_ic"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/ImpedanceController localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: ic
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="es.rtc:q"     to="ic.rtc:qRef" />
+  <rtconnect from="sh.rtc:basePosOut"     to="ic.rtc:basePosIn" />
+  <rtconnect from="sh.rtc:baseRpyOut"     to="ic.rtc:baseRpyIn" />
+  <rtconnect from="es.rtc:rfsensorOut"     to="ic.rtc:ref_rfsensorIn" />
+  <rtconnect from="es.rtc:lfsensorOut"     to="ic.rtc:ref_lfsensorIn" />
+  <rtconnect from="es.rtc:rhsensorOut"     to="ic.rtc:ref_rhsensorIn" />
+  <rtconnect from="es.rtc:lhsensorOut"     to="ic.rtc:ref_lhsensorIn" />
+  <rtconnect from="rh.rtc:q"     to="ic.rtc:qCurrent" />
+  <rtconnect from="rmfo.rtc:off_rfsensor"     to="ic.rtc:rfsensor" />
+  <rtconnect from="rmfo.rtc:off_lfsensor"     to="ic.rtc:lfsensor" />
+  <rtconnect from="rmfo.rtc:off_rhsensor"     to="ic.rtc:rhsensor" />
+  <rtconnect from="rmfo.rtc:off_lhsensor"     to="ic.rtc:lhsensor" />
+  <!-- <rtactivate component="ic.rtc"/> -->
+
+    <node name="load_hes"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/EmergencyStopper localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: hes
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="ic.rtc:q"     to="hes.rtc:qRef" />
+  <!-- <rtactivate component="hes.rtc"/> -->
+
+  <node name="load_el"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/SoftErrorLimiter localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: el
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="hes.rtc:q"     to="el.rtc:qRef" />
+  <rtconnect from="rh.rtc:q"     to="el.rtc:qCurrent" />
+  <rtconnect from="rh.rtc:servoState"     to="el.rtc:servoStateIn" />
+  <!-- <rtactivate component="el.rtc"/> -->
+
+
+  <node name="load_kf"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/KalmanFilter localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: kf
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="rh.rtc:gsensor"     to="kf.rtc:acc" />
+  <rtconnect from="rh.rtc:gyrometer"     to="kf.rtc:rate" />
+  <rtconnect from="rh.rtc:q"     to="kf.rtc:qCurrent" />
+  <!-- <rtactivate component="kf.rtc"/> -->
+
+  <node name="load_rmfo"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/RemoveForceSensorLinkOffset localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: rmfo
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="rh.rtc:q"     to="rmfo.rtc:qCurrent" />
+  <rtconnect from="rh.rtc:rfsensor"     to="rmfo.rtc:rfsensor" />
+  <rtconnect from="rh.rtc:lfsensor"     to="rmfo.rtc:lfsensor" />
+  <rtconnect from="rh.rtc:rhsensor"     to="rmfo.rtc:rhsensor" />
+  <rtconnect from="rh.rtc:lhsensor"     to="rmfo.rtc:lhsensor" />
+  <rtconnect from="kf.rtc:rpy"     to="rmfo.rtc:rpy" />
+  <!-- <rtactivate component="rmfo.rtc"/> -->
+
+  <node name="load_bp"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/Beeper localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: bp
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <rtconnect from="es.rtc:beepCommand"     to="bp.rtc:beepCommand" />
+  <rtconnect from="el.rtc:beepCommand"     to="bp.rtc:beepCommand" />
+  <!-- <rtactivate component="bp.rtc"/> -->
+
+  <node name="load_log"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/DataLogger localhost:2810">
+    <rosparam subst_value="true">
+      instance_name: log
+      config_file: $(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf
+    </rosparam>
+  </node>
+  <!-- <rtactivate component="log.rtc"/> -->
+
+  <node name="serialize" pkg="rtcloader" type="serialize.py" output="screen" args="localhost:2810">
+    <rosparam>
+      instance_names: ["rh","seq","sh","kf","rmfo","es","ic","hes","el","bp","log"]
+    </rosparam>
+  </node>
+
+  <node name="rtmlaunch_samplerobot" pkg="openrtm_tools" type="rtmlaunch.py" args="$(find hrpsys_sample)/launch/SampleRobot.launch" output="screen">
+    <env name="RTC_CONNECTION_CHECK_ONCE" value="true"/>
+  </node>
+</launch>
