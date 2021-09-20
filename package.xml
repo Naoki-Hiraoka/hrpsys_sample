@@ -16,12 +16,6 @@
   <depend>rtcloader</depend>
   <depend>execution_context_rostime</depend>
 
-  <depend>hrpsys</depend>
+  <depend>hrpsys_ros_bridge_tutorials</depend>
 
-
-  <!-- The export tag contains other, unspecified, tags -->
-  <export>
-    <!-- Other tools can request additional information be placed here -->
-
-  </export>
 </package>
