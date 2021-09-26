@@ -9,6 +9,7 @@ import OpenHRP
 rh_svc = rtm.findService(rtm.findRTC("rh"),"RobotHardwareService","RobotHardwareService","service0")._narrow(OpenHRP.RobotHardwareService)
 seq_svc = rtm.findService(rtm.findRTC("seq"),"SequencePlayerService","SequencePlayerService","service0")._narrow(OpenHRP.SequencePlayerService)
 sh_svc = rtm.findService(rtm.findRTC("sh"),"StateHolderService","StateHolderService","service0")._narrow(OpenHRP.StateHolderService)
+st_svc = rtm.findService(rtm.findRTC("st"),"StabilizerService","StabilizerService","service0")._narrow(OpenHRP.StabilizerService)
 
 import time
 def servoOn(jname='all', tm=3):
@@ -32,3 +33,24 @@ def servoOff(jname='all'):
 def setResetPose():
     seq_svc.setJointAngles([0.000000, -0.036652,  0.000000,  0.078540, -0.041888,  0.000000,  0.174533, -0.003491, 0.000000, -1.570796,  0.000000,  0.000000,  0.000000,  0.000000, -0.036652,  0.000000,  0.078540, -0.041888, 0.000000,  0.174533, -0.003491,  0.000000, -1.570796,  0.000000,  0.000000,  0.000000,  0.00000,  0.000000,  0.000000], 5.0)
     return True
+
+def setStAbcParameters ():
+    # ST parameters
+    stp=st_svc.getParameter()
+    stp.st_algorithm=OpenHRP.StabilizerService.EEFMQP
+    #   eefm st params
+    stp.eefm_leg_inside_margin=71.12*1e-3
+    stp.eefm_leg_outside_margin=71.12*1e-3
+    stp.eefm_leg_front_margin=182.0*1e-3
+    stp.eefm_leg_rear_margin=72.0*1e-3
+    stp.eefm_k1=[-1.39899,-1.39899]
+    stp.eefm_k2=[-0.386111,-0.386111]
+    stp.eefm_k3=[-0.175068,-0.175068]
+    stp.eefm_rot_damping_gain=[[20*1.6*10, 20*1.6*10, 1e5]]*4 # Stiff parameter for simulation
+    stp.eefm_pos_damping_gain=[[3500*50, 3500*50, 3500*1.0*5]]*4 # Stiff parameter for simulation
+    #   tpcc st params
+    stp.k_tpcc_p=[0.2, 0.2]
+    stp.k_tpcc_x=[4.0, 4.0]
+    stp.k_brot_p=[0.0, 0.0]
+    stp.k_brot_tc=[0.1, 0.1]
+    st_svc.setParameter(stp)
