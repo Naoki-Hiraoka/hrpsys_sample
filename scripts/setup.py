@@ -9,6 +9,7 @@ import OpenHRP
 rh_svc = rtm.findService(rtm.findRTC("rh"),"RobotHardwareService","RobotHardwareService","service0")._narrow(OpenHRP.RobotHardwareService)
 seq_svc = rtm.findService(rtm.findRTC("seq"),"SequencePlayerService","SequencePlayerService","service0")._narrow(OpenHRP.SequencePlayerService)
 sh_svc = rtm.findService(rtm.findRTC("sh"),"StateHolderService","StateHolderService","service0")._narrow(OpenHRP.StateHolderService)
+abc_svc = rtm.findService(rtm.findRTC("abc"),"AutoBalancerService","AutoBalancerService","service0")._narrow(OpenHRP.AutoBalancerService)
 st_svc = rtm.findService(rtm.findRTC("st"),"StabilizerService","StabilizerService","service0")._narrow(OpenHRP.StabilizerService)
 
 import time
@@ -31,7 +32,7 @@ def servoOff(jname='all'):
     return True
 
 def setResetPose():
-    seq_svc.setJointAngles([0.000000, -0.036652,  0.000000,  0.078540, -0.041888,  0.000000,  0.174533, -0.003491, 0.000000, -1.570796,  0.000000,  0.000000,  0.000000,  0.000000, -0.036652,  0.000000,  0.078540, -0.041888, 0.000000,  0.174533, -0.003491,  0.000000, -1.570796,  0.000000,  0.000000,  0.000000,  0.00000,  0.000000,  0.000000], 5.0)
+    seq_svc.setJointAngles([-7.778932e-05,-0.378613,-0.00021,0.832039,-0.452564,0.000245,0.31129,-0.159481,-0.115399,-0.636277,0.0,0.0,0.0,-7.778932e-05,-0.378613,-0.00021,0.832039,-0.452564,0.000245,0.31129,0.159481,0.115399,-0.636277,0.0,0.0,0.0,0.0,0.0,0.0], 5.0)
     return True
 
 def setStAbcParameters ():

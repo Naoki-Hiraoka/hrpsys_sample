@@ -285,20 +285,20 @@
   <rtconnect from="rh.rtc:tau"  to="HrpsysSeqStateROSBridge0.rtc:rstorque" subscription_type="new"/>
   <rtconnect from="rh.rtc:gsensor" to="HrpsysSeqStateROSBridge0.rtc:gsensor" subscription_type="new"/>
   <rtconnect from="rh.rtc:gyrometer" to="HrpsysSeqStateROSBridge0.rtc:gyrometer" subscription_type="new"/>
-  <rtconnect from="rh.rtc:rfsensor"     to="HrpsysSeqStateROSBridge0.rtc:rfsensor" />
-  <rtconnect from="rh.rtc:lfsensor"     to="HrpsysSeqStateROSBridge0.rtc:lfsensor" />
-  <rtconnect from="rh.rtc:rhsensor"     to="HrpsysSeqStateROSBridge0.rtc:rhsensor" />
-  <rtconnect from="rh.rtc:lhsensor"     to="HrpsysSeqStateROSBridge0.rtc:lhsensor" />
-  <rtconnect from="rmfo.rtc:off_rfsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_rfsensor" />
-  <rtconnect from="rmfo.rtc:off_lfsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_lfsensor" />
-  <rtconnect from="rmfo.rtc:off_rhsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_rhsensor" />
-  <rtconnect from="rmfo.rtc:off_lhsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_lhsensor" />
+  <rtconnect from="rh.rtc:rfsensor"     to="HrpsysSeqStateROSBridge0.rtc:rfsensor" subscription_type="new" />
+  <rtconnect from="rh.rtc:lfsensor"     to="HrpsysSeqStateROSBridge0.rtc:lfsensor" subscription_type="new" />
+  <rtconnect from="rh.rtc:rhsensor"     to="HrpsysSeqStateROSBridge0.rtc:rhsensor" subscription_type="new" />
+  <rtconnect from="rh.rtc:lhsensor"     to="HrpsysSeqStateROSBridge0.rtc:lhsensor" subscription_type="new" />
+  <rtconnect from="rmfo.rtc:off_rfsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_rfsensor" subscription_type="new" />
+  <rtconnect from="rmfo.rtc:off_lfsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_lfsensor" subscription_type="new" />
+  <rtconnect from="rmfo.rtc:off_rhsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_rhsensor" subscription_type="new" />
+  <rtconnect from="rmfo.rtc:off_lhsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_lhsensor" subscription_type="new" />
   <rtconnect from="sh.rtc:baseTformOut" to="HrpsysSeqStateROSBridge0.rtc:baseTform" subscription_type="new"/>
   <rtconnect from="sh.rtc:qOut" to="HrpsysSeqStateROSBridge0.rtc:mcangle" subscription_type="new"/>
-  <rtconnect from="es.rtc:rfsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_rfsensor" />
-  <rtconnect from="es.rtc:lfsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_lfsensor" />
-  <rtconnect from="es.rtc:rhsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_rhsensor" />
-  <rtconnect from="es.rtc:lhsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_lhsensor" />
+  <rtconnect from="es.rtc:rfsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_rfsensor" subscription_type="new" />
+  <rtconnect from="es.rtc:lfsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_lfsensor" subscription_type="new" />
+  <rtconnect from="es.rtc:rhsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_rhsensor" subscription_type="new" />
+  <rtconnect from="es.rtc:lhsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_lhsensor" subscription_type="new" />
   <rtconnect from="el.rtc:servoStateOut" to="HrpsysSeqStateROSBridge0.rtc:servoState" subscription_type="new"/>
   <rtconnect from="es.rtc:emergencyMode" to="HrpsysSeqStateROSBridge0.rtc:emergencyMode" subscription_type="new"/>
   <rtconnect from="HrpsysSeqStateROSBridge0.rtc:SequencePlayerService" to="seq.rtc:SequencePlayerService" subscription_type="new"/>
