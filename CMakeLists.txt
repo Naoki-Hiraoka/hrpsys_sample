@@ -4,6 +4,7 @@ project(hrpsys_sample)
 find_package(catkin REQUIRED)
 include(FindPkgConfig)
 pkg_check_modules(openhrp3 REQUIRED openhrp3.1)
+pkg_check_modules(hrpsys hrpsys-base REQUIRED)
 
 catkin_package(
 #  INCLUDE_DIRS include

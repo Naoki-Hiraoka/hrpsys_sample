@@ -62,6 +62,7 @@ items:
                 controller: "BridgeShmController"
                 reloading: true
                 inputLinkPositions: false
+                controllerOptions: "pdGainsSimFileName:@hrpsys_PREFIX@/share/hrpsys/samples/SampleRobot/SampleRobot.PDgain.dat"
             -
               id: 5
               name: "Crane"
