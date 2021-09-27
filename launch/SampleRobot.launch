@@ -274,10 +274,12 @@
   <param name="robot_description" textfile="$(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.dae" />
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="hrpsys_state_publisher" />
 
+  <arg name="MODEL_FILE" value="$(find openhrp3)/share/OpenHRP-3.1/sample/model/sample1.wrl" />
+
   <node name = "HrpsysSeqStateROSBridge"
         pkg  = "hrpsys_ros_bridge"
         type = "HrpsysSeqStateROSBridge"
-        args = '-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "model:file://$(find openhrp3)/share/OpenHRP-3.1/sample/model/sample1.wrl" -o "example.HrpsysSeqStateROSBridge.config_file:$(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf" -o "exec_cxt.periodic.rate:500"'
+        args = '-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o model:"file://$(arg MODEL_FILE)" -o "example.HrpsysSeqStateROSBridge.config_file:$(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf" -o "exec_cxt.periodic.rate:500"'
         output = "screen">
     <param name="publish_sensor_transforms" value="true" />
   </node>
@@ -309,7 +311,7 @@
   <node name = "HrpsysJointTrajectoryBridge"
         pkg  = "hrpsys_ros_bridge"
         type = "HrpsysJointTrajectoryBridge"
-        args = '-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "model:file://$(find openhrp3)/share/OpenHRP-3.1/sample/model/sample1.wrl" -o "exec_cxt.periodic.rate:500"'
+        args = '-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o model:"file://$(arg MODEL_FILE)" -o "exec_cxt.periodic.rate:500"'
         output = "screen" />
   <rtconnect from="HrpsysJointTrajectoryBridge0.rtc:SequencePlayerService" to="seq.rtc:SequencePlayerService" subscription_type="new"/>
   <rtactivate component="HrpsysJointTrajectoryBridge0.rtc" />
