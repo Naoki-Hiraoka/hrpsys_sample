@@ -56,7 +56,7 @@ items:
               plugin: SimpleController
               class: SimpleControllerItem
               data: 
-                isNoDelayMode: false
+                isNoDelayMode: true
                 controller: "BridgeShmController"
                 reloading: true
                 inputLinkPositions: false
@@ -121,7 +121,7 @@ items:
             timeLength: 12000
             allLinkPositionOutputMode: false
             deviceStateOutput: true
-            controllerThreads: true
+            controllerThreads: false
             recordCollisionData: false
             dynamicsMode: Forward dynamics
             integrationMode: Runge Kutta
