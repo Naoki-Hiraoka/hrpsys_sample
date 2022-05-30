@@ -1,0 +1,12 @@
+<launch>
+  <param name="use_sim_time" value="true"/>
+  <node name="choreonoid" pkg="choreonoid_ros_ext_plugin" type="run_choreonoid.sh"
+        args="$(find hrpsys_sample_rtmros_hrp2)/config/JAXON_JVRC.cnoid --start-simulation"/>
+
+  <include file="$(find hrpsys_sample)/launch/hrpsys.launch">
+    <arg name="CONF_FILE" value="$(find hrpsys_choreonoid_tutorials)/models/JAXON_JVRC.conf"/>
+    <arg name="URDF_FILE" value="$(find hrpsys_choreonoid_tutorials)/models/JAXON_JVRC.urdf"/>
+    <arg name="MODEL_FILE" value="$(find jvrc_models)/JAXON_JVRC/JAXON_JVRCmain_hrpsys_bush.wrl" />
+    <arg name="CONTROLLER_CONFIG_FILE" value="$(find hrpsys_choreonoid_tutorials)/models/JAXON_JVRC_controller_config.yaml" />
+  </include>
+</launch>

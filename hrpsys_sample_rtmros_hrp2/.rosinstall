@@ -1,0 +1,26 @@
+- git:
+    local-name: choreonoid
+    uri: https://github.com/choreonoid/choreonoid.git
+    version: release-1.7
+- git:
+    local-name: choreonoid_bridge_shm
+    uri: https://gitlab.jsk.imi.i.u-tokyo.ac.jp/hiraoka/choreonoid_bridge_shm.git
+- git:
+    local-name: choreonoid_ros_ext_plugin
+    uri: https://github.com/Naoki-Hiraoka/choreonoid_ros_ext_plugin.git
+- git:
+    local-name: rtcloader
+    uri: https://github.com/Naoki-Hiraoka/rtcloader.git
+- git:
+    local-name: execution_context_rostime
+    uri: https://github.com/Naoki-Hiraoka/execution_context_rostime.git
+- git:
+    local-name: rtmros_tutorials
+    uri: https://github.com/start-jsk/rtmros_tutorials.git
+- git:
+    local-name: trans_system
+    uri: git@github.com:jsk-ros-pkg/trans_system.git
+- git:
+    local-name: rtmros_choreonoid
+    uri: https://github.com/start-jsk/rtmros_choreonoid.git
+
