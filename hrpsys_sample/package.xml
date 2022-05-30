@@ -15,6 +15,7 @@
   <depend>choreonoid_bridge_shm</depend>
   <depend>choreonoid_ros_ext_plugin</depend>
   <depend>rtcloader</depend>
+  <depend>hrpsys_trans_bridge</depend>
   <depend>execution_context_rostime</depend>
 
   <depend>hrpsys_ros_bridge_tutorials</depend>

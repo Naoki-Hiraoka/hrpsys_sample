@@ -17,4 +17,6 @@
 - git:
     local-name: rtmros_tutorials
     uri: https://github.com/start-jsk/rtmros_tutorials.git
-
+- git:
+    local-name: trans_system
+    uri: git@github.com:jsk-ros-pkg/trans_system.git
