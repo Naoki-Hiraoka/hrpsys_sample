@@ -6,7 +6,7 @@ rtm.initCORBA()
 from hrpsys.OpenHRP import *
 import OpenHRP
 
-rh_svc = rtm.findService(rtm.findRTC("rh"),"RobotHardwareService","RobotHardwareService","service0")._narrow(OpenHRP.RobotHardwareService)
+rh_svc = rtm.findService(rtm.findRTC("RobotHardware0"),"RobotHardwareService","RobotHardwareService","service0")._narrow(OpenHRP.RobotHardwareService)
 seq_svc = rtm.findService(rtm.findRTC("seq"),"SequencePlayerService","SequencePlayerService","service0")._narrow(OpenHRP.SequencePlayerService)
 sh_svc = rtm.findService(rtm.findRTC("sh"),"StateHolderService","StateHolderService","service0")._narrow(OpenHRP.StateHolderService)
 abc_svc = rtm.findService(rtm.findRTC("abc"),"AutoBalancerService","AutoBalancerService","service0")._narrow(OpenHRP.AutoBalancerService)
