@@ -78,7 +78,7 @@ items:
               class: CraneItem
               data:
                 linkName: "CHEST_JOINT2"
-                localPos: [0,0,0]
+                localPos: [-0.02,0,0]
                 maxHeight: 2.0
                 minHeight: 0.5
                 upVelocity: 0.1
