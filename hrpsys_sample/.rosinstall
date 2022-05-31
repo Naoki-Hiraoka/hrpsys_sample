@@ -12,8 +12,8 @@
     local-name: rtcloader
     uri: https://github.com/Naoki-Hiraoka/rtcloader.git
 - git:
-    local-name: execution_context_rostime
-    uri: https://github.com/Naoki-Hiraoka/execution_context_rostime.git
+    local-name: execution_context_shmtime
+    uri: https://github.com/Naoki-Hiraoka/execution_context_shmtime.git
 - git:
     local-name: rtmros_tutorials
     uri: https://github.com/start-jsk/rtmros_tutorials.git

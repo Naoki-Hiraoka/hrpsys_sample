@@ -15,7 +15,8 @@
   <node name="load_rh"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys_trans_bridge/RobotHardware localhost:2810">
     <rosparam subst_value="true">
       execution_context:
-        type: "execution_context_rostime/ROSTimePeriodicExecutionContext"
+        type: "execution_context_shmtime/ShmTimePeriodicExecutionContext"
+        #type: "execution_context_rostime/ROSTimePeriodicExecutionContext"
         #type: "PeriodicExecutionContext"
         rate: 500
       instance_name: rh

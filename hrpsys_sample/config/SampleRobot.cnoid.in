@@ -18,6 +18,11 @@ items:
           name: "ClockPublisher"
           plugin: ROSExt
           class: ClockPublisherItem
+        -
+          id: 9
+          name: "ClockPublisher"
+          plugin: ROSExt
+          class: ClockShmItem
         - 
           id: 3
           name: "SR1"
