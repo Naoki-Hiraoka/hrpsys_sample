@@ -56,7 +56,7 @@ items:
               plugin: SimpleController
               class: SimpleControllerItem
               data: 
-                isNoDelayMode: false
+                isNoDelayMode: true # 制御が1周期遅れるかどうか. ゲインが高いときは、trueにしないと発散する
                 controller: "BridgeShmController"
                 reloading: true
                 inputLinkPositions: false
@@ -67,10 +67,10 @@ items:
               plugin: SimpleController
               class: SimpleControllerItem
               data: 
-                isImmediateMode: true
+                isNoDelayMode: true # 制御が1周期遅れるかどうか. ゲインが高いときは、trueにしないと発散する
                 controller: "SpringDamperController"
                 reloading: true
-                controllerOptions: "RLEG_BUSH_Z 2.5e4 1.1e2 RLEG_BUSH_ROLL 2.5e1 5.0e-1 RLEG_BUSH_PITCH 2.5e1 5.0e-1 LLEG_BUSH_Z 2.5e4 1.1e2 LLEG_BUSH_ROLL 2.5e1 5.0e-1 LLEG_BUSH_PITCH 2.5e1 5.0e-1"
+                controllerOptions: "RLEG_BUSH_Z 1.1e6 1.1e3 RLEG_BUSH_ROLL 2.5e3 2.5e0 RLEG_BUSH_PITCH 2.5e3 2.5e-0 LLEG_BUSH_Z 1.1e6 1.1e3 LLEG_BUSH_ROLL 2.5e3 2.5e0 LLEG_BUSH_PITCH 2.5e3 2.5e0"
             -
               id: 6
               name: "Crane"
@@ -121,7 +121,7 @@ items:
             timeLength: 12000
             allLinkPositionOutputMode: false
             deviceStateOutput: true
-            controllerThreads: true
+            controllerThreads: false # choreonoid1.7では、falseにしないとControllerItemのisNoDelayMode: trueが無効になる
             recordCollisionData: false
             dynamicsMode: Forward dynamics
             integrationMode: Runge Kutta
