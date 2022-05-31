@@ -6,7 +6,7 @@
   <include file="$(find hrpsys_sample)/launch/hrpsys.launch">
     <arg name="CONF_FILE" value="$(find hrpsys_choreonoid_tutorials)/models/JAXON_JVRC.conf"/>
     <arg name="URDF_FILE" value="$(find hrpsys_choreonoid_tutorials)/models/JAXON_JVRC.urdf"/>
-    <arg name="MODEL_FILE" value="$(find jvrc_models)/JAXON_JVRC/JAXON_JVRCmain_hrpsys_bush.wrl" />
+    <arg name="MODEL_FILE" value="$(find jvrc_models)/JAXON_JVRC/JAXON_JVRCmain_hrpsys.wrl" />
     <arg name="CONTROLLER_CONFIG_FILE" value="$(find hrpsys_choreonoid_tutorials)/models/JAXON_JVRC_controller_config.yaml" />
   </include>
 </launch>
