@@ -284,7 +284,7 @@
 
   <node name="serialize" pkg="rtcloader" type="serialize.py" output="screen" args="localhost:2810">
     <rosparam>
-      instance_names: ["RobotHardware0","seq","sh","kf","rmfo","es","ic","abc","st","hes","el","bp","log"]
+      instance_names: ["RobotHardware0","seq","sh","kf","rmfo","es","ic","abc","st","co","hes","el","bp","log"]
     </rosparam>
   </node>
 
