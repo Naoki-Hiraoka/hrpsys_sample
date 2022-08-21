@@ -31,7 +31,7 @@ items:
           data: 
             modelFile: "@jvrc_models_SOURCE_PREFIX@/JAXON_JVRC/JAXON_JVRCmain_hrpsys_bush.wrl"
             currentBaseLink: "WAIST"
-            rootPosition: [ 0.0, 0.0, 1.5 ]
+            rootPosition: [ 0.0, 0.0, 1.0 ]
             rootAttitude: [ 
               0, -1, 0, 
               1, 0, 0, 
@@ -41,7 +41,7 @@ items:
               -0.418684,  0.003093,  0.000000,  0.000000,  0.000000,  0.000000,  0.450000,  0.000000,  0.523599, -0.349066,
               -0.087266, -1.396263,  0.000000,  0.000000, -0.349066,  0.000000,  0.523599,  0.349066,  0.087266, -1.396263, 
                0.000000,  0.000000, -0.349066,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
-            initialRootPosition: [ 0.0, 0.0, 1.5 ]
+            initialRootPosition: [ 0.0, 0.0, 1.0 ]
             initialRootAttitude: [ 
               0, -1, 0, 
               1, 0, 0, 
@@ -91,6 +91,7 @@ items:
                 pgain: 25000.0
                 dgain: 1000.0
                 dgainR: 1000.0
+                liftStart: false
         - 
           id: 7
           name: "Floor"
