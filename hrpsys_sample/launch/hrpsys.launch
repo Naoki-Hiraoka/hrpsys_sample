@@ -27,7 +27,7 @@
   <!-- <rtactivate component="RobotHardware0.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="RobotHardwareServiceROSBridge" type="RobotHardwareServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />  <!-- exec_cxt.periodic.rateは0近くてよいはずだが、Ctrl-Cしたときの応答が遅くなる -->
   <rtconnect from="RobotHardwareServiceROSBridge.rtc:RobotHardwareService" to="RobotHardware0.rtc:RobotHardwareService"  subscription_type="new"/>
   <rtactivate component="RobotHardwareServiceROSBridge.rtc" />
 
@@ -44,7 +44,7 @@
   <!-- <rtactivate component="seq.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="SequencePlayerServiceROSBridge" type="SequencePlayerServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="SequencePlayerServiceROSBridge.rtc:SequencePlayerService" to="seq.rtc:SequencePlayerService"  subscription_type="new"/>
   <rtactivate component="SequencePlayerServiceROSBridge.rtc" />
 
@@ -68,7 +68,7 @@
   <!-- <rtactivate component="sh.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="StateHolderServiceROSBridge" type="StateHolderServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="StateHolderServiceROSBridge.rtc:StateHolderService" to="sh.rtc:StateHolderService"  subscription_type="new"/>
   <rtactivate component="StateHolderServiceROSBridge.rtc" />
 
@@ -88,7 +88,7 @@
   <!-- <rtactivate component="es.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="EmergencyStopperServiceROSBridge" type="EmergencyStopperServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="EmergencyStopperServiceROSBridge.rtc:EmergencyStopperService" to="es.rtc:EmergencyStopperService"  subscription_type="new"/>
   <rtactivate component="EmergencyStopperServiceROSBridge.rtc" />
 
@@ -113,7 +113,7 @@
   <!-- <rtactivate component="ic.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="ImpedanceControllerServiceROSBridge" type="ImpedanceControllerServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="ImpedanceControllerServiceROSBridge.rtc:ImpedanceControllerService" to="ic.rtc:ImpedanceControllerService"  subscription_type="new"/>
   <rtactivate component="ImpedanceControllerServiceROSBridge.rtc" />
 
@@ -137,7 +137,7 @@
   <!-- <rtactivate component="abc.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="AutoBalancerServiceROSBridge" type="AutoBalancerServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="AutoBalancerServiceROSBridge.rtc:AutoBalancerService" to="abc.rtc:AutoBalancerService"  subscription_type="new"/>
   <rtactivate component="AutoBalancerServiceROSBridge.rtc" />
 
@@ -174,7 +174,7 @@
   <!-- <rtactivate component="st.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="StabilizerServiceROSBridge" type="StabilizerServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="StabilizerServiceROSBridge.rtc:StabilizerService" to="st.rtc:StabilizerService"  subscription_type="new"/>
   <rtactivate component="StabilizerServiceROSBridge.rtc" />
 
@@ -189,7 +189,7 @@
   <!-- <rtactivate component="co.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="CollisionDetectorServiceROSBridge" type="CollisionDetectorServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="CollisionDetectorServiceROSBridge.rtc:CollisionDetectorService" to="co.rtc:CollisionDetectorService"  subscription_type="new"/>
   <rtactivate component="CollisionDetectorServiceROSBridge.rtc" />
 
@@ -203,7 +203,7 @@
   <!-- <rtactivate component="hes.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="HardEmergencyStopperServiceROSBridge" type="EmergencyStopperServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="HardEmergencyStopperServiceROSBridge.rtc:EmergencyStopperService" to="hes.rtc:EmergencyStopperService"  subscription_type="new"/>
   <rtactivate component="EmergencyStopperServiceROSBridge.rtc" />
 
@@ -219,7 +219,7 @@
   <!-- <rtactivate component="el.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="SoftErrorLimiterServiceROSBridge" type="SoftErrorLimiterServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="SoftErrorLimiterServiceROSBridge.rtc:SoftErrorLimiterService" to="el.rtc:SoftErrorLimiterService"  subscription_type="new"/>
   <rtactivate component="SoftErrorLimiterServiceROSBridge.rtc" />
 
@@ -236,7 +236,7 @@
   <!-- <rtactivate component="kf.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="KalmanFilterServiceROSBridge" type="KalmanFilterServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="KalmanFilterServiceROSBridge.rtc:KalmanFilterService" to="kf.rtc:KalmanFilterService"  subscription_type="new"/>
   <rtactivate component="KalmanFilterServiceROSBridge.rtc" />
 
@@ -255,7 +255,7 @@
   <!-- <rtactivate component="rmfo.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="RemoveForceSensorLinkOffsetServiceROSBridge" type="RemoveForceSensorLinkOffsetServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="RemoveForceSensorLinkOffsetServiceROSBridge.rtc:RemoveForceSensorLinkOffsetService" to="rmfo.rtc:RemoveForceSensorLinkOffsetService"  subscription_type="new"/>
   <rtactivate component="RemoveForceSensorLinkOffsetServiceROSBridge.rtc" />
 
@@ -278,7 +278,7 @@
   <!-- <rtactivate component="log.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="DataLoggerServiceROSBridge" type="DataLoggerServiceROSBridgeComp"
-        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:1"' />
+        output="screen" args ='-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o "exec_cxt.periodic.rate:10"' />
   <rtconnect from="DataLoggerServiceROSBridge.rtc:DataLoggerService" to="log.rtc:DataLoggerService"  subscription_type="new"/>
   <rtactivate component="DataLoggerServiceROSBridge.rtc" />
 
