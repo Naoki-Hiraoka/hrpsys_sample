@@ -15,10 +15,11 @@
   <depend>choreonoid_bridge_shm</depend>
   <depend>choreonoid_ros_ext_plugin</depend>
   <depend>rtcloader</depend>
-  <depend>execution_context_rostime</depend>
+  <depend>execution_context_shmtime</depend>
 
   <depend>hrpsys_ros_bridge_tutorials</depend>
   <depend>jvrc_models</depend>
   <depend>hrpsys_sample</depend>
+  <depend>hrpsys_choreonoid_tutorials</depend>
 
 </package>

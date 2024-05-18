@@ -1,13 +1,14 @@
 - git:
     local-name: choreonoid
     uri: https://github.com/choreonoid/choreonoid.git
-    version: release-1.7
+    version: release-2.1
 - git:
     local-name: choreonoid_bridge_shm
     uri: https://gitlab.jsk.imi.i.u-tokyo.ac.jp/hiraoka/choreonoid_bridge_shm.git
 - git:
-    local-name: choreonoid_ros_ext_plugin
-    uri: https://github.com/Naoki-Hiraoka/choreonoid_ros_ext_plugin.git
+    local-name: choreonoid_ros_ext2_plugin
+    uri: https://github.com/Naoki-Hiraoka/choreonoid_ros_ext2_plugin.git
+    version: 2.0
 - git:
     local-name: rtcloader
     uri: https://github.com/Naoki-Hiraoka/rtcloader.git
@@ -17,10 +18,16 @@
 - git:
     local-name: rtmros_tutorials
     uri: https://github.com/start-jsk/rtmros_tutorials.git
-- git:
+- git: # iob-versionのためにsourceから入れる必要がある
+    local-name: hrpsys
+    uri: https://github.com/fkanehiro/hrpsys-base.git
+- git: # hrpsysをsourceから入れるので
+    local-name: rtm-ros-robotics/rtmros_common
+    uri: https://github.com/start-jsk/rtmros_common.git
+- git: # hrpsys_trans_brige. servo_shm.h
     local-name: trans_system
-    uri: git@github.com:jsk-ros-pkg/trans_system.git
-- git:
+    uri: https://github.com/jsk-ros-pkg/trans_system.git
+- git: # jvrc_models(JAXON_JVRCモデルのため). hrpsys_choreonoid_tutorials(JAXON_JVRC.PDgains_sim.datのためだけ)
     local-name: rtmros_choreonoid
     uri: https://github.com/start-jsk/rtmros_choreonoid.git
 

@@ -2,25 +2,31 @@
 
 Terminal1
 ```
-$ rtmlaunch hrpsys_sample_rtmros_hrp2 JAXON_JVRC.launch
+$ rtmlaunch hrpsys_sample_rtmros_hrp2 JAXON_JVRC_choreonoid.launch
 ```
 
 Terminal2
+```
+$ rtmlaunch hrpsys_sample_rtmros_hrp2 JAXON_JVRC_hrpsys.launch
+```
+(Terminal1のchoreonoidが起動して/clockをpublishし始めた後にHrpsysSeqStateROSBridgeを立ち上げないと、HrpsysSeqStateROSBridgeが勝手に/clockをpublishし始めてしまう.)
+
+Terminal3
 ```
 $ roscd hrpsys_sample_rtmros_hrp2/scripts
 $ ipython -i ./jaxon_jvrc_setup.py
 $ servoOn()
 $ setResetPose()
-$ setStAbcParametersJAXON()
+$ setStAbcIcParametersJAXON()
 $ abc_svc.startAutoBalancer(["rleg","lleg"])
 ```
 
-Terminal3
+Terminal4
 ```
 rosservice call /Crane/lift False
 ```
 
-Terminal2
+Terminal3
 ```
 $ st_svc.startStabilizer()
 $ abc_svc.goPos(1,0,0)

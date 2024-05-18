@@ -1,8 +1,4 @@
 <launch>
-  <param name="use_sim_time" value="true"/>
-  <node name="choreonoid" pkg="choreonoid_ros_ext_plugin" type="run_choreonoid.sh"
-        args="$(find hrpsys_sample)/config/SampleRobot.cnoid --start-simulation"/>
-
   <include file="$(find hrpsys_sample)/launch/hrpsys.launch">
     <arg name="CONF_FILE" value="$(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.conf"/>
     <arg name="URDF_FILE" value="$(find hrpsys_ros_bridge_tutorials)/models/SampleRobot.urdf"/>
