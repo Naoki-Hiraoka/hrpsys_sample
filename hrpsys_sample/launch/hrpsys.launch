@@ -23,7 +23,7 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="el.rtc:q"     to="RobotHardware0.rtc:qRef" />
+  <rtconnect from="el.rtc:q"     to="RobotHardware0.rtc:qRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="RobotHardware0.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="RobotHardwareServiceROSBridge" type="RobotHardwareServiceROSBridgeComp"
@@ -37,10 +37,10 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="sh.rtc:qOut"     to="seq.rtc:qInit" />
-  <rtconnect from="sh.rtc:basePosOut"     to="seq.rtc:basePosInit" />
-  <rtconnect from="sh.rtc:baseRpyOut"     to="seq.rtc:baseRpyInit" />
-  <rtconnect from="sh.rtc:zmpOut"     to="seq.rtc:zmpRefInit" />
+  <rtconnect from="sh.rtc:qOut"     to="seq.rtc:qInit" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:basePosOut"     to="seq.rtc:basePosInit" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:baseRpyOut"     to="seq.rtc:baseRpyInit" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:zmpOut"     to="seq.rtc:zmpRefInit" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="seq.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="SequencePlayerServiceROSBridge" type="SequencePlayerServiceROSBridgeComp"
@@ -54,17 +54,17 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="seq.rtc:qRef"     to="sh.rtc:qIn" />
-  <rtconnect from="seq.rtc:tqRef"     to="sh.rtc:tqIn" />
-  <rtconnect from="seq.rtc:basePos"     to="sh.rtc:basePosIn" />
-  <rtconnect from="seq.rtc:baseRpy"     to="sh.rtc:baseRpyIn" />
-  <rtconnect from="seq.rtc:zmpRef"     to="sh.rtc:zmpIn" />
-  <rtconnect from="seq.rtc:optionalData"     to="sh.rtc:optionalDataIn" />
-  <rtconnect from="seq.rtc:rfsensorRef"     to="sh.rtc:rfsensorIn" />
-  <rtconnect from="seq.rtc:lfsensorRef"     to="sh.rtc:lfsensorIn" />
-  <rtconnect from="seq.rtc:rhsensorRef"     to="sh.rtc:rhsensorIn" />
-  <rtconnect from="seq.rtc:lhsensorRef"     to="sh.rtc:lhsensorIn" />
-  <rtconnect from="RobotHardware0.rtc:q"     to="sh.rtc:currentQIn" />
+  <rtconnect from="seq.rtc:qRef"     to="sh.rtc:qIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:tqRef"     to="sh.rtc:tqIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:basePos"     to="sh.rtc:basePosIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:baseRpy"     to="sh.rtc:baseRpyIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:zmpRef"     to="sh.rtc:zmpIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:optionalData"     to="sh.rtc:optionalDataIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:rfsensorRef"     to="sh.rtc:rfsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:lfsensorRef"     to="sh.rtc:lfsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:rhsensorRef"     to="sh.rtc:rhsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:lhsensorRef"     to="sh.rtc:lhsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:q"     to="sh.rtc:currentQIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="sh.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="StateHolderServiceROSBridge" type="StateHolderServiceROSBridgeComp"
@@ -78,13 +78,13 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="sh.rtc:qOut"     to="es.rtc:qRef" />
-  <rtconnect from="sh.rtc:rfsensorOut"     to="es.rtc:rfsensorIn" />
-  <rtconnect from="sh.rtc:lfsensorOut"     to="es.rtc:lfsensorIn" />
-  <rtconnect from="sh.rtc:rhsensorOut"     to="es.rtc:rhsensorIn" />
-  <rtconnect from="sh.rtc:lhsensorOut"     to="es.rtc:lhsensorIn" />
-  <rtconnect from="RobotHardware0.rtc:servoState"     to="es.rtc:servoStateIn" />
-  <rtconnect from="st.rtc:emergencySignal"     to="es.rtc:emergencySignal" />
+  <rtconnect from="sh.rtc:qOut"     to="es.rtc:qRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:rfsensorOut"     to="es.rtc:rfsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:lfsensorOut"     to="es.rtc:lfsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:rhsensorOut"     to="es.rtc:rhsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:lhsensorOut"     to="es.rtc:lhsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:servoState"     to="es.rtc:servoStateIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="st.rtc:emergencySignal"     to="es.rtc:emergencySignal" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="es.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="EmergencyStopperServiceROSBridge" type="EmergencyStopperServiceROSBridgeComp"
@@ -98,18 +98,18 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="es.rtc:q"     to="ic.rtc:qRef" />
-  <rtconnect from="sh.rtc:basePosOut"     to="ic.rtc:basePosIn" />
-  <rtconnect from="sh.rtc:baseRpyOut"     to="ic.rtc:baseRpyIn" />
-  <rtconnect from="es.rtc:rfsensorOut"     to="ic.rtc:ref_rfsensorIn" />
-  <rtconnect from="es.rtc:lfsensorOut"     to="ic.rtc:ref_lfsensorIn" />
-  <rtconnect from="es.rtc:rhsensorOut"     to="ic.rtc:ref_rhsensorIn" />
-  <rtconnect from="es.rtc:lhsensorOut"     to="ic.rtc:ref_lhsensorIn" />
-  <rtconnect from="RobotHardware0.rtc:q"     to="ic.rtc:qCurrent" />
-  <rtconnect from="rmfo.rtc:off_rfsensor"     to="ic.rtc:rfsensor" />
-  <rtconnect from="rmfo.rtc:off_lfsensor"     to="ic.rtc:lfsensor" />
-  <rtconnect from="rmfo.rtc:off_rhsensor"     to="ic.rtc:rhsensor" />
-  <rtconnect from="rmfo.rtc:off_lhsensor"     to="ic.rtc:lhsensor" />
+  <rtconnect from="es.rtc:q"     to="ic.rtc:qRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:basePosOut"     to="ic.rtc:basePosIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:baseRpyOut"     to="ic.rtc:baseRpyIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="es.rtc:rfsensorOut"     to="ic.rtc:ref_rfsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="es.rtc:lfsensorOut"     to="ic.rtc:ref_lfsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="es.rtc:rhsensorOut"     to="ic.rtc:ref_rhsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="es.rtc:lhsensorOut"     to="ic.rtc:ref_lhsensorIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:q"     to="ic.rtc:qCurrent" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_rfsensor"     to="ic.rtc:rfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_lfsensor"     to="ic.rtc:lfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_rhsensor"     to="ic.rtc:rhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_lhsensor"     to="ic.rtc:lhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="ic.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="ImpedanceControllerServiceROSBridge" type="ImpedanceControllerServiceROSBridgeComp"
@@ -123,17 +123,17 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="ic.rtc:q"     to="abc.rtc:qRef" />
-  <rtconnect from="sh.rtc:basePosOut"     to="abc.rtc:basePosIn" />
-  <rtconnect from="sh.rtc:baseRpyOut"     to="abc.rtc:baseRpyIn" />
-  <rtconnect from="sh.rtc:optionalDataOut"     to="abc.rtc:optionalData" />
-  <rtconnect from="st.rtc:emergencySignal"     to="abc.rtc:emergencySignal" />
-  <rtconnect from="st.rtc:diffCapturePoint"     to="abc.rtc:diffCapturePoint" />
-  <rtconnect from="st.rtc:actContactStates"     to="abc.rtc:actContactStates" />
-  <rtconnect from="es.rtc:rfsensorOut"     to="abc.rtc:ref_rfsensor" />
-  <rtconnect from="es.rtc:lfsensorOut"     to="abc.rtc:ref_lfsensor" />
-  <rtconnect from="es.rtc:rhsensorOut"     to="abc.rtc:ref_rhsensor" />
-  <rtconnect from="es.rtc:lhsensorOut"     to="abc.rtc:ref_lhsensor" />
+  <rtconnect from="ic.rtc:q"     to="abc.rtc:qRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:basePosOut"     to="abc.rtc:basePosIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:baseRpyOut"     to="abc.rtc:baseRpyIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="sh.rtc:optionalDataOut"     to="abc.rtc:optionalData" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="st.rtc:emergencySignal"     to="abc.rtc:emergencySignal" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="st.rtc:diffCapturePoint"     to="abc.rtc:diffCapturePoint" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="st.rtc:actContactStates"     to="abc.rtc:actContactStates" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="es.rtc:rfsensorOut"     to="abc.rtc:ref_rfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="es.rtc:lfsensorOut"     to="abc.rtc:ref_lfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="es.rtc:rhsensorOut"     to="abc.rtc:ref_rhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="es.rtc:lhsensorOut"     to="abc.rtc:ref_lhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="abc.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="AutoBalancerServiceROSBridge" type="AutoBalancerServiceROSBridgeComp"
@@ -147,30 +147,30 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="abc.rtc:q"     to="st.rtc:qRef" />
-  <rtconnect from="kf.rtc:rpy"     to="st.rtc:rpy" />
-  <rtconnect from="abc.rtc:zmpOut"     to="st.rtc:zmpRef" />
-  <rtconnect from="abc.rtc:basePosOut"     to="st.rtc:basePosIn" />
-  <rtconnect from="abc.rtc:baseRpyOut"     to="st.rtc:baseRpyIn" />
-  <rtconnect from="abc.rtc:contactStates"     to="st.rtc:contactStates" />
-  <rtconnect from="abc.rtc:controlSwingSupportTime"     to="st.rtc:controlSwingSupportTime" />
-  <rtconnect from="RobotHardware0.rtc:q"     to="st.rtc:qCurrent" />
-  <rtconnect from="seq.rtc:qRef"     to="st.rtc:qRefSeq" />
-  <rtconnect from="abc.rtc:walkingStates"     to="st.rtc:walkingStates" />
-  <rtconnect from="abc.rtc:sbpCogOffset"     to="st.rtc:sbpCogOffset" />
-  <rtconnect from="abc.rtc:toeheelRatio"     to="st.rtc:toeheelRatio" />
-  <rtconnect from="abc.rtc:rfsensor"     to="st.rtc:rfsensorRef" />
-  <rtconnect from="abc.rtc:lfsensor"     to="st.rtc:lfsensorRef" />
-  <rtconnect from="abc.rtc:rhsensor"     to="st.rtc:rhsensorRef" />
-  <rtconnect from="abc.rtc:lhsensor"     to="st.rtc:lhsensorRef" />
-  <rtconnect from="abc.rtc:limbCOPOffset_rfsensor"     to="st.rtc:limbCOPOffset_rfsensor" />
-  <rtconnect from="abc.rtc:limbCOPOffset_lfsensor"     to="st.rtc:limbCOPOffset_lfsensor" />
-  <rtconnect from="abc.rtc:limbCOPOffset_rhsensor"     to="st.rtc:limbCOPOffset_rhsensor" />
-  <rtconnect from="abc.rtc:limbCOPOffset_lhsensor"     to="st.rtc:limbCOPOffset_lhsensor" />
-  <rtconnect from="rmfo.rtc:off_rfsensor"     to="st.rtc:rfsensor" />
-  <rtconnect from="rmfo.rtc:off_lfsensor"     to="st.rtc:lfsensor" />
-  <rtconnect from="rmfo.rtc:off_rhsensor"     to="st.rtc:rhsensor" />
-  <rtconnect from="rmfo.rtc:off_lhsensor"     to="st.rtc:lhsensor" />
+  <rtconnect from="abc.rtc:q"     to="st.rtc:qRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="kf.rtc:rpy"     to="st.rtc:rpy" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:zmpOut"     to="st.rtc:zmpRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:basePosOut"     to="st.rtc:basePosIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:baseRpyOut"     to="st.rtc:baseRpyIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:contactStates"     to="st.rtc:contactStates" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:controlSwingSupportTime"     to="st.rtc:controlSwingSupportTime" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:q"     to="st.rtc:qCurrent" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="seq.rtc:qRef"     to="st.rtc:qRefSeq" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:walkingStates"     to="st.rtc:walkingStates" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:sbpCogOffset"     to="st.rtc:sbpCogOffset" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:toeheelRatio"     to="st.rtc:toeheelRatio" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:rfsensor"     to="st.rtc:rfsensorRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:lfsensor"     to="st.rtc:lfsensorRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:rhsensor"     to="st.rtc:rhsensorRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:lhsensor"     to="st.rtc:lhsensorRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:limbCOPOffset_rfsensor"     to="st.rtc:limbCOPOffset_rfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:limbCOPOffset_lfsensor"     to="st.rtc:limbCOPOffset_lfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:limbCOPOffset_rhsensor"     to="st.rtc:limbCOPOffset_rhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:limbCOPOffset_lhsensor"     to="st.rtc:limbCOPOffset_lhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_rfsensor"     to="st.rtc:rfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_lfsensor"     to="st.rtc:lfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_rhsensor"     to="st.rtc:rhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_lhsensor"     to="st.rtc:lhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="st.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="StabilizerServiceROSBridge" type="StabilizerServiceROSBridgeComp"
@@ -184,8 +184,8 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="st.rtc:q"     to="co.rtc:qRef" />
-  <rtconnect from="RobotHardware0.rtc:servoState"     to="co.rtc:servoStateIn" />
+  <rtconnect from="st.rtc:q"     to="co.rtc:qRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:servoState"     to="co.rtc:servoStateIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="co.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="CollisionDetectorServiceROSBridge" type="CollisionDetectorServiceROSBridgeComp"
@@ -199,7 +199,7 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="co.rtc:q"     to="hes.rtc:qRef" />
+  <rtconnect from="co.rtc:q"     to="hes.rtc:qRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="hes.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="HardEmergencyStopperServiceROSBridge" type="EmergencyStopperServiceROSBridgeComp"
@@ -213,9 +213,9 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="hes.rtc:q"     to="el.rtc:qRef" />
-  <rtconnect from="RobotHardware0.rtc:q"     to="el.rtc:qCurrent" />
-  <rtconnect from="RobotHardware0.rtc:servoState"     to="el.rtc:servoStateIn" />
+  <rtconnect from="hes.rtc:q"     to="el.rtc:qRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:q"     to="el.rtc:qCurrent" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:servoState"     to="el.rtc:servoStateIn" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="el.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="SoftErrorLimiterServiceROSBridge" type="SoftErrorLimiterServiceROSBridgeComp"
@@ -229,10 +229,10 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="RobotHardware0.rtc:gsensor"     to="kf.rtc:acc" />
-  <rtconnect from="RobotHardware0.rtc:gyrometer"     to="kf.rtc:rate" />
-  <rtconnect from="RobotHardware0.rtc:q"     to="kf.rtc:qCurrent" />
-  <rtconnect from="abc.rtc:accRef"     to="kf.rtc:accRef" />
+  <rtconnect from="RobotHardware0.rtc:gsensor"     to="kf.rtc:acc" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:gyrometer"     to="kf.rtc:rate" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:q"     to="kf.rtc:qCurrent" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="abc.rtc:accRef"     to="kf.rtc:accRef" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="kf.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="KalmanFilterServiceROSBridge" type="KalmanFilterServiceROSBridgeComp"
@@ -246,12 +246,12 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="RobotHardware0.rtc:q"     to="rmfo.rtc:qCurrent" />
-  <rtconnect from="RobotHardware0.rtc:rfsensor"     to="rmfo.rtc:rfsensor" />
-  <rtconnect from="RobotHardware0.rtc:lfsensor"     to="rmfo.rtc:lfsensor" />
-  <rtconnect from="RobotHardware0.rtc:rhsensor"     to="rmfo.rtc:rhsensor" />
-  <rtconnect from="RobotHardware0.rtc:lhsensor"     to="rmfo.rtc:lhsensor" />
-  <rtconnect from="kf.rtc:rpy"     to="rmfo.rtc:rpy" />
+  <rtconnect from="RobotHardware0.rtc:q"     to="rmfo.rtc:qCurrent" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:rfsensor"     to="rmfo.rtc:rfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:lfsensor"     to="rmfo.rtc:lfsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:rhsensor"     to="rmfo.rtc:rhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:lhsensor"     to="rmfo.rtc:lhsensor" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="kf.rtc:rpy"     to="rmfo.rtc:rpy" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="rmfo.rtc"/> -->
 
   <node pkg="hrpsys_ros_bridge" name="RemoveForceSensorLinkOffsetServiceROSBridge" type="RemoveForceSensorLinkOffsetServiceROSBridgeComp"
@@ -265,8 +265,8 @@
       config_file: $(arg CONF_FILE)
     </rosparam>
   </node>
-  <rtconnect from="es.rtc:beepCommand"     to="bp.rtc:beepCommand" />
-  <rtconnect from="el.rtc:beepCommand"     to="bp.rtc:beepCommand" />
+  <rtconnect from="es.rtc:beepCommand"     to="bp.rtc:beepCommand" push_policy="new" push_rate="1000.0" buffer_length="1"/>
+  <rtconnect from="el.rtc:beepCommand"     to="bp.rtc:beepCommand" push_policy="new" push_rate="1000.0" buffer_length="1"/>
   <!-- <rtactivate component="bp.rtc"/> -->
 
   <node name="load_log"  pkg="rtcloader" type="load.py" output="screen" args="hrpsys-base/DataLogger localhost:2810">
@@ -298,27 +298,27 @@
         output = "screen">
     <param name="publish_sensor_transforms" value="true" />
   </node>
-  <rtconnect from="RobotHardware0.rtc:q"  to="HrpsysSeqStateROSBridge0.rtc:rsangle" subscription_type="new" push_policy="new"/>
-  <rtconnect from="RobotHardware0.rtc:tau"  to="HrpsysSeqStateROSBridge0.rtc:rstorque" subscription_type="new" push_policy="new"/>
-  <rtconnect from="RobotHardware0.rtc:gsensor" to="HrpsysSeqStateROSBridge0.rtc:gsensor" subscription_type="new" push_policy="new"/>
-  <rtconnect from="RobotHardware0.rtc:gyrometer" to="HrpsysSeqStateROSBridge0.rtc:gyrometer" subscription_type="new" push_policy="new"/>
-  <rtconnect from="RobotHardware0.rtc:rfsensor"     to="HrpsysSeqStateROSBridge0.rtc:rfsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="RobotHardware0.rtc:lfsensor"     to="HrpsysSeqStateROSBridge0.rtc:lfsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="RobotHardware0.rtc:rhsensor"     to="HrpsysSeqStateROSBridge0.rtc:rhsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="RobotHardware0.rtc:lhsensor"     to="HrpsysSeqStateROSBridge0.rtc:lhsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="rmfo.rtc:off_rfsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_rfsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="rmfo.rtc:off_lfsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_lfsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="rmfo.rtc:off_rhsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_rhsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="rmfo.rtc:off_lhsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_lhsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="sh.rtc:baseTformOut" to="HrpsysSeqStateROSBridge0.rtc:baseTform" subscription_type="new" push_policy="new"/>
-  <rtconnect from="sh.rtc:qOut" to="HrpsysSeqStateROSBridge0.rtc:mcangle" subscription_type="new" push_policy="new"/>
-  <rtconnect from="es.rtc:rfsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_rfsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="es.rtc:lfsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_lfsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="es.rtc:rhsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_rhsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="es.rtc:lhsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_lhsensor" subscription_type="new" push_policy="new" />
-  <rtconnect from="el.rtc:servoStateOut" to="HrpsysSeqStateROSBridge0.rtc:servoState" subscription_type="new" push_policy="new"/>
-  <rtconnect from="es.rtc:emergencyMode" to="HrpsysSeqStateROSBridge0.rtc:emergencyMode" subscription_type="new" push_policy="new"/>
-  <rtconnect from="HrpsysSeqStateROSBridge0.rtc:SequencePlayerService" to="seq.rtc:SequencePlayerService" subscription_type="new" push_policy="new"/>
+  <rtconnect from="RobotHardware0.rtc:q"  to="HrpsysSeqStateROSBridge0.rtc:rsangle" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:tau"  to="HrpsysSeqStateROSBridge0.rtc:rstorque" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:gsensor" to="HrpsysSeqStateROSBridge0.rtc:gsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:gyrometer" to="HrpsysSeqStateROSBridge0.rtc:gyrometer" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:rfsensor"     to="HrpsysSeqStateROSBridge0.rtc:rfsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:lfsensor"     to="HrpsysSeqStateROSBridge0.rtc:lfsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:rhsensor"     to="HrpsysSeqStateROSBridge0.rtc:rhsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="RobotHardware0.rtc:lhsensor"     to="HrpsysSeqStateROSBridge0.rtc:lhsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_rfsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_rfsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_lfsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_lfsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_rhsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_rhsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="rmfo.rtc:off_lhsensor"     to="HrpsysSeqStateROSBridge0.rtc:off_lhsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="sh.rtc:baseTformOut" to="HrpsysSeqStateROSBridge0.rtc:baseTform" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="sh.rtc:qOut" to="HrpsysSeqStateROSBridge0.rtc:mcangle" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="es.rtc:rfsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_rfsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="es.rtc:lfsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_lfsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="es.rtc:rhsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_rhsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="es.rtc:lhsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_lhsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="el.rtc:servoStateOut" to="HrpsysSeqStateROSBridge0.rtc:servoState" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="es.rtc:emergencyMode" to="HrpsysSeqStateROSBridge0.rtc:emergencyMode" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="HrpsysSeqStateROSBridge0.rtc:SequencePlayerService" to="seq.rtc:SequencePlayerService" subscription_type="new" push_policy="new" buffer_length="1"/>
   <rtactivate component="HrpsysSeqStateROSBridge0.rtc" />
 
   <rosparam command="load" file="$(arg CONTROLLER_CONFIG_FILE)" />
@@ -327,7 +327,7 @@
         type = "HrpsysJointTrajectoryBridge"
         args = '-o "corba.master_manager:localhost:2810" -o "corba.nameservers:localhost:15005" -o "naming.formats:%n.rtc" -o model:"file://$(arg MODEL_FILE)" -o "exec_cxt.periodic.rate:500"'
         output = "screen" />
-  <rtconnect from="HrpsysJointTrajectoryBridge0.rtc:SequencePlayerService" to="seq.rtc:SequencePlayerService" subscription_type="new" push_policy="new"/>
+  <rtconnect from="HrpsysJointTrajectoryBridge0.rtc:SequencePlayerService" to="seq.rtc:SequencePlayerService" subscription_type="new" push_policy="new" buffer_length="1"/>
   <rtactivate component="HrpsysJointTrajectoryBridge0.rtc" />
 
   <node name="rtmlaunch_hrpsys" pkg="openrtm_tools" type="rtmlaunch.py" args="$(find hrpsys_sample)/launch/hrpsys.launch" output="screen">
