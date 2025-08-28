@@ -318,7 +318,7 @@
   <rtconnect from="es.rtc:lhsensorOut"     to="HrpsysSeqStateROSBridge0.rtc:ref_lhsensor" subscription_type="new" push_policy="new" buffer_length="1"/>
   <rtconnect from="el.rtc:servoStateOut" to="HrpsysSeqStateROSBridge0.rtc:servoState" subscription_type="new" push_policy="new" buffer_length="1"/>
   <rtconnect from="es.rtc:emergencyMode" to="HrpsysSeqStateROSBridge0.rtc:emergencyMode" subscription_type="new" push_policy="new" buffer_length="1"/>
-  <rtconnect from="HrpsysSeqStateROSBridge0.rtc:SequencePlayerService" to="seq.rtc:SequencePlayerService" subscription_type="new" push_policy="new" buffer_length="1"/>
+  <rtconnect from="HrpsysSeqStateROSBridge0.rtc:SequencePlayerService" to="seq.rtc:SequencePlayerService" subscription_type="new" push_policy="new"/>
   <rtactivate component="HrpsysSeqStateROSBridge0.rtc" />
 
   <rosparam command="load" file="$(arg CONTROLLER_CONFIG_FILE)" />
