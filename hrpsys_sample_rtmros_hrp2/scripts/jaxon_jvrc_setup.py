@@ -102,7 +102,7 @@ def setStAbcIcParametersJAXON():
                     OpenHRP.StabilizerService.TwoDimensionVertex(pos=[-1*stp.eefm_leg_rear_margin, stp.eefm_leg_outside_margin])]
     rarm_vertices = rleg_vertices
     larm_vertices = lleg_vertices
-    stp.eefm_support_polygon_vertices_sequence = map (lambda x : OpenHRP.StabilizerService.SupportPolygonVertices(vertices=x), [rleg_vertices, lleg_vertices, rarm_vertices, larm_vertices])
+    stp.eefm_support_polygon_vertices_sequence = list(map (lambda x : OpenHRP.StabilizerService.SupportPolygonVertices(vertices=x), [rleg_vertices, lleg_vertices, rarm_vertices, larm_vertices]))
     stp.eefm_cogvel_cutoff_freq = 4.0
     stp.eefm_k1=[-1.48412,-1.48412]
     stp.eefm_k2=[-0.486727,-0.486727]
